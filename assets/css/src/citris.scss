@@ -1,0 +1,31 @@
+/**
+ * Citris
+ * http://wordpress.org/themes
+ *
+ * Copyright (c) 2013 Darin Kotter
+ * Licensed under the GPLv2+ license.
+ */
+
+@import 'global/variables';
+
+@import 'global/mixins';
+@import 'global/fonts';
+
+@import 'global/reset';
+
+@import 'global/global';
+@import 'global/header';
+@import 'global/menu';
+
+@import 'global/content';
+
+@import "sections/home.scss";
+@import "sections/projects.scss";
+
+@import 'sections/slider';
+
+@import 'global/common';
+@import 'global/widgets';
+@import 'global/footer';
+
+@import 'sections/events';

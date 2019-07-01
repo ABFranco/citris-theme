@@ -1,0 +1,266 @@
+/* =Widgets
+----------------------------------------------- */
+
+.home-sidebar {
+	margin: 45px 0 35px;
+
+	.col-1-3 {
+		padding-left: 20px;
+		border-left: 1px solid #dddcdb;
+
+		@media screen and (max-width: 640px) {
+			border-left: none;
+			padding-left: 0;
+		}
+	}
+}
+
+.single-post {
+	.widget-area {
+		@media screen and (max-width: 640px) {
+			display: none;
+		}
+	}
+}
+
+.widget {
+	margin: 0 0 60px;
+	@media screen and (max-width: 640px) {
+		margin-bottom: 40px;
+	}
+
+	.widget-title {
+		font-size: 1.1em;
+		color: #718ea4;
+		margin-bottom: 30px;
+		@media screen and (max-width: 640px) {
+			margin-bottom: 10px;
+	}
+	}
+
+	.newsletter-form {
+		@media screen and (min-width: 641px) and (max-width: 890px) {
+			overflow: hidden;
+		}
+
+		.search-field {
+			@include box-sizing(border-box);
+			border-radius: 0;
+			background: #e1e5ea;
+			border: none;
+			padding: 9px 8px;
+			width: 74%;
+			margin: 0 2% 5px 0;
+			@media screen and (min-width: 641px) and (max-width: 1000px) {
+				width: 100%;
+			}
+		}
+		.search-submit {
+			border: none;
+			background: #f79779;
+			color: #FFF;
+			border-radius: 0;
+			box-shadow: none;
+			font-size: .9em;
+			padding: 9px 15px;
+			text-shadow: none;
+			text-transform: uppercase;
+			width: 22%;
+
+			@media screen and (min-width: 641px) and (max-width: 1000px) {
+				display: block;
+				width: inherit;
+			}
+		}
+	}
+
+	.reserve-btn {
+		border: none;
+		background: #f79779;
+		color: #FFF;
+		border-radius: 0;
+		box-shadow: none;
+		font-size: .9em;
+		padding: 9px 15px;
+		text-shadow: none;
+		text-transform: uppercase;
+		line-height: 1;
+	}
+
+	.social {
+		list-style: none;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin-right: 25px;
+			@media screen and (max-width: 750px) {
+				margin-right: 10px;
+			}
+
+			a {
+				background: url('../../images/social.png') no-repeat 0 0;
+				width: 35px;
+				height: 28px;
+				display: inline-block;
+
+				&.twitter:hover {
+					background-position: 0 -28px;
+                    // color: #55acee;
+				}
+				&.facebook {
+					background-position: -60px 0;
+
+					&:hover {
+						background-position: -60px -28px;
+                        // color: #3b5998;
+					}
+				}
+				&.youtube {
+					background-position: -116px 0;
+
+					&:hover {
+						background-position: -116px -28px;
+                        // color: #d42424;
+					}
+				}
+			}
+		}
+	}
+}
+
+.widget-area {
+	.related-events {
+
+		.event-large {
+			margin-bottom: 40px;
+			@media screen and (max-width: 640px) {
+				margin-bottom: 10px;
+			}
+
+			.date {
+				float: left;
+
+				@media screen and (min-width: 641px) and (max-width: 840px) {
+					display: block;
+					float: none;
+					margin: 0 0 10px;
+				}
+			}
+			a {
+				float: left;
+				width: 75%;
+                p{
+                    color: #444;
+                }
+
+				@media screen and (max-width: 1120px) {
+					width: 70%;
+				}
+				@media screen and (max-width: 960px) {
+					width: 65%;
+				}
+				@media screen and (min-width: 641px) and (max-width: 840px) {
+					float: none;
+					width: 100%;
+				}
+			}
+            &:hover{
+                .date{
+                    background: $citris-main;
+                }
+                a p{
+                    color: $citris-main;
+                }
+            }
+		}
+		.date {
+			display: block;
+			background-color: #818182;
+			float: left;
+			padding: 6px 15px;
+			margin-right: 10px;
+			color: #FFF;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 0.7em;
+			@media screen and (min-width: 641px) and (max-width: 800px) {
+				display: inline-block;
+				float: none;
+				margin: 0 0 10px;
+			}
+			.day {
+				display: block;
+				font-size: 1.6em;
+				line-height: 20px;
+			}
+		}
+		.event-title {
+			overflow: hidden;
+			width: auto;
+            display: table-cell;
+            vertical-align: middle;
+			@media screen and (max-width: 800px) {
+				font-size: 0.9em;
+			}
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+
+			li {
+				overflow: hidden;
+				margin-bottom: 30px;
+                width: 100%;
+                display: inline-table;
+
+				&:last-child {
+					text-align: right;
+					margin-bottom: 0;
+				}
+				.schedule {
+					display: inline-block;
+					border: none;
+					text-transform: uppercase;
+					color: $white;
+					border-radius: 0;
+					box-shadow: none;
+					text-shadow: none;
+					padding: 9px 15px;
+					font-size: 0.9em;
+				}
+                &:hover{
+                    .date{
+                        background: $citris-main;
+                    }
+                    .event-title{
+                        color: $citris-main;
+                    }
+                }
+			}
+		} // end ul
+	} // end related events
+} // end widget-area
+
+.com-btn{
+    background-color: $citris-orange;
+    &:hover{
+        background: $citris-main;
+    }
+}
+
+/* Nav menu - initiatives page */
+.col-1-3 .widget_nav_menu {
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+		li {
+			margin-bottom: 1em;
+		}
+		li a {
+			color: white;
+			display: block;
+			padding: 10px;
+		}
+	}
+}

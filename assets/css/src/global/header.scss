@@ -1,0 +1,83 @@
+/* =Header
+----------------------------------------------- */
+
+.site-header {
+	height: 150px;
+	border-bottom: 6px solid #1F6490;
+    position: relative;
+
+    nav{
+        z-index: 99;
+        ul{
+            position: relative;
+            z-index: 99;
+        }
+    }
+
+	@media screen and (max-width: 400px) {
+		height: inherit;
+	}
+
+	.site-branding  {
+		float: left;
+		height: 100px;
+		margin-top: 25px;
+		width: 100px;
+		@media screen and (max-width: 400px) {
+			float: none;
+			margin: 15px auto;
+		}
+	}
+    .search-form, .calendar{
+        &:hover{
+            @include box-shadow(0 0 0 1px $citris-main);
+        }
+    }
+	.search-form {
+		position: absolute;
+		right: 60px;
+		top: -9px;
+		background: #E1E5EA;
+		padding: 1px 7px;
+		z-index: 100;
+
+		.search-submit {
+			display: none;
+		}
+	}
+	.search-field {
+		background-color: transparent;
+		background-image: url(../../images/search.png);
+		background-image: url(../../images/search.svg);
+		background-position: 7px center;
+		background-repeat: no-repeat;
+		border: none;
+		cursor: pointer;
+		height: 37px;
+		margin: 3px 0;
+		padding: 0 0 0 34px;
+		position: relative;
+		-webkit-transition: width 400ms ease, background 400ms ease;
+		transition: width 400ms ease, background 400ms ease;
+		width: 0;
+
+		&:focus {
+			background-color: $white;
+			border: 2px solid #E1E5EA;
+			cursor: text;
+			outline: 0;
+			width: 230px;
+		}
+	}
+	.calendar {
+		position: absolute;
+		right: 0px;
+		top: -9px;
+		background: #E1E5EA url(../../images/calendar.png) no-repeat center center;
+		background-image: url(../../images/calendar.svg);
+		text-indent: -9999px;
+		height: 45px;
+		width: 48px;
+	}
+
+}

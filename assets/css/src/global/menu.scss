@@ -1,0 +1,257 @@
+/* =Menu
+----------------------------------------------- */
+
+.main-navigation {
+	display: block;
+	float: right;
+	margin-top: 55px;
+	font-size: 18px;
+	position: relative;
+	@media screen and (min-width: 751px) and (max-width: 975px) {
+		margin-top: 50px;
+	}
+	@media screen and (max-width: 400px) {
+		float: none;
+		margin: 20px auto 30px;
+	}
+	ul {
+		list-style: none;
+		margin: 0 110px 0 0;
+		padding-left: 0;
+		@media screen and (max-width: 975px) {
+			margin: 0;
+		}
+		@media screen and (max-width: 750px) {
+			display: none;
+		}
+
+		li {
+			float: left;
+			position: relative;
+			margin-right: 20px;
+
+			@media screen and (max-width: 845px) {
+				font-size: .95em;
+				margin-right: 10px;
+			}
+
+			a {
+				color: $nav_link_color;
+				display: block;
+				padding: .6em 0.55em;
+				text-decoration: none;
+			}
+			a:hover, a:active {
+				background: $nav_hover_color;
+				color: white;
+			}
+		}
+		li:hover > ul {
+			display: block;
+		}
+
+		li.current-menu-item{
+            a {
+                background: $nav_hover_color;
+                color: white;
+            }
+            .sub-menu{
+                li a{
+                    background: #fff;
+                    color: #4b4848;
+                }
+            }
+		}
+
+		li:last-child {
+			@media screen and (max-width: 975px) {
+	    	margin-right: 0;
+    	}
+		}
+
+		ul {
+			background: white;
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			display: none;
+			float: left;
+			left: 0;
+			margin: 0;
+			padding: 10px 0 0;
+			position: absolute;
+			z-index: 99999;
+			li {
+				display: list-item;
+				float: none;
+				margin-right: 0;
+			}
+			li:last-child {
+				padding-bottom: 0;
+			}
+			li a {
+				@include box-sizing(border-box);
+				display: block;
+				padding: 7px 20px;
+				width: 200px;
+			}
+			li a:hover {
+				background-color: $default_hover_color;
+				border-bottom: 0;
+				color: white;
+			}
+			ul {
+				left: 100%;
+				padding-top: 0;
+				top: 0;
+			}
+		}
+        .sub-menu{
+            li{
+                border-bottom: 1px solid #eee;
+            }
+        }
+	}
+
+	@media screen and (max-width: 750px) {
+		.toggled .nav-menu {
+			display: block;
+		}
+	}
+	.menu-extra {
+        margin-top: -35px;
+        display: inline-block;
+        position: relative;
+        float: right;
+
+		@media screen and (max-width: 975px) {
+			margin-top: 1em;
+			position: relative;
+		}
+		@media screen and (max-width: 750px) {
+			// float: right;
+			margin-top: 0;
+			// position: relative;
+			top: -20px;
+		}
+	}
+} // end main-navigation
+
+.secondary-navigation {
+	background-color: #1F6490;
+	overflow: hidden;
+	margin-top: -6px;
+	position: relative;
+	z-index: 10;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		@media screen and (max-width: 750px) {
+			display: none;
+		}
+
+		li {
+			float: left;
+			position: relative;
+			margin-right: 20px;
+
+			@media screen and (max-width: 845px) {
+				font-size: .95em;
+				margin-right: 10px;
+			}
+
+			a {
+				color: white;
+				display: block;
+				padding: 1em;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+			a:hover, a:active {
+				background: white;
+				color: $nav_link_color;
+			}
+		}
+		li:hover > ul {
+			display: block;
+		}
+
+		li.current-menu-item{
+            a {
+                background: $nav_hover_color;
+                color: white;
+            }
+            .sub-menu{
+                li a{
+                    background: #fff;
+                    color: #4b4848;
+                }
+            }
+		}
+
+		li:last-child {
+			@media screen and (max-width: 975px) {
+	    		margin-right: 0;
+			}
+		}
+	}
+} // end secondary-navigation
+
+/* Small menu */
+.menu-toggle {
+	cursor: pointer;
+	display: none;
+
+	&:after {
+		content: "\f502";
+		font-size: 12px;
+		padding-left: 8px;
+		vertical-align: -4px;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font: normal 16px/1 Genericons;
+		vertical-align: text-bottom;
+	}
+
+	@media screen and (max-width: 750px) {
+		display: block;
+		margin-right: 150px;
+	}
+	@media screen and (max-width: 360px) {
+		display: block;
+		margin-right: 115px;
+	}
+}
+
+.toggled {
+	position: relative;
+
+	.nav-menu,
+	.nav-menu > ul {
+		@media screen and (max-width: 750px) {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 40px;
+			background: #FFF;
+			z-index: 999;
+		}
+	}
+	.nav-menu li {
+		float: none;
+		margin: 0;
+		a {
+			display: block;
+			padding: 10px 30px 10px 20px;
+		}
+	}
+
+	.nav-menu li .sub-menu {
+		display: none;
+	}
+
+	.menu-toggle:after {
+		content: "\f500";
+		vertical-align: 2px;
+	}
+}

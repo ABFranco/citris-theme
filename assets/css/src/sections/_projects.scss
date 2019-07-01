@@ -1,0 +1,82 @@
+
+.ctrs-projects{
+    .overview{
+        .col-2-3{
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    img{
+        border-bottom: 4px solid transparent;
+        @include transition($transition-fast);
+    }
+    &.health{
+        &:hover{
+            img{
+                border-bottom: 4px solid $health;
+            }
+        }
+    }
+    &.energy{
+        &:hover{
+            img{
+                border-bottom: 4px solid $energy;
+            }
+        }
+    }
+    &.democracy{
+        &:hover{
+            img{
+                border-bottom: 4px solid $democracy;
+            }
+        }
+    }
+    &.infrastructure{
+        &:hover{
+            img{
+                border-bottom: 4px solid $infrastructure;
+            }
+        }
+    }
+    &.foundry{
+        &:hover{
+            img{
+                border-bottom: 4px solid $foundry;
+            }
+        }
+    }
+}
+
+.grid{
+    .col-2-3{
+        padding-right: 0;
+    }
+}
+.grid.list{
+    .col-1-2{
+        &:nth-child(odd){
+            padding-right: 10px;
+        }
+    }
+    .col-2-3{
+        padding-right: 0;
+    }
+}
+
+.grid.overview{
+    @media screen and (max-width: $bp-large){
+        padding: 0 !important;
+        .col-2-3{
+            width: 100%;
+            display: block;
+            clear: both;
+            margin: 0 !important;
+        }
+        .col-1-3{
+            padding: 12px 20px !important;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+user: dkotter
+database:
+	db_user: 10up
+	pass: 7V49GeATFlNm
+	host: 192.241.227.82
+	port: 3306
+	database: citris

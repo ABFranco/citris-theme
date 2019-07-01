@@ -1,0 +1,39 @@
+/**
+ * Theme Name:  Citris
+ * Theme URI:   http://10up.com/
+ * Description: Custom theme for Citris
+ * Author:      Darin Kotter
+ * Author URI:  10up.com
+ * Version:     0.1.0
+ *
+ * License:     GPLv2+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+ /* Grid style */
+.display-posts-listing.grid {
+	display: grid;
+	grid-gap: 16px;
+}
+
+.display-posts-listing.grid .title {
+	display: block;
+}
+
+.display-posts-listing.grid img { 
+	display: block; 
+	max-width: 100%; 
+	height: auto; 
+}
+
+@media (min-width: 600px) {
+	.display-posts-listing.grid {
+		grid-template-columns: repeat( 2, 1fr );
+	}
+}
+
+@media (min-width: 1024px) {
+	.display-posts-listing.grid {
+		grid-template-columns: repeat( 3, 1fr );
+	}
+}

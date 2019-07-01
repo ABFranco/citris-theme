@@ -1,0 +1,339 @@
+/******************************************************************
+Site Name: Citris
+Author: 10up / Dillon McCallum
+
+Stylesheet: Mixins & Constants Stylesheet
+******************************************************************/
+
+
+
+/*********************
+Pie Mixin
+*********************/
+@mixin PIE {
+    behavior: url("/PIE.htc"); // Make path relative to the HTML file(s) not the CSS File
+}
+
+
+/*********************
+TRANSITION
+*********************/
+@mixin transition($transition...) {
+    // defining prefixes so we can use them in mixins below
+    $prefixes:      ("-webkit", "-ms", "-o",  "");
+    @each $prefix in $prefixes {
+        #{$prefix}-transition: $transition;
+    }
+
+    transition: $transition;
+}
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+    background-color: $from;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient(top, $from, $to);
+    background-image: -moz-linear-gradient(top, $from, $to);
+    background-image: -o-linear-gradient(top, $from, $to);
+    background-image: linear-gradient(to bottom, $from, $to);
+    @include PIE;
+}
+
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+    -moz-box-sizing: $box-model; // Firefox <= 19
+    box-sizing: $box-model;
+}
+
+
+/*********************
+BORDER RADIUS
+*********************/
+/* USAGE: @include border-radius(4px 4px 0 0); */
+
+@mixin border-radius($radius...) {
+    // defining prefixes so we can use them in mixins below
+    $prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
+    @each $prefix in $prefixes {
+        #{$prefix}-border-radius: $radius;
+    }
+
+    border-radius: $radius;
+    @include PIE;
+}
+
+/*********************
+BOX SHADOWS
+*********************/
+/* USAGE: @include box-shadow(inset 0 0 4px rgba(0,0,0,0.22)); */
+@mixin box-shadow($shadow...) {
+    $prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
+    @each $prefix in $prefixes {
+        #{$prefix}-box-shadow: $shadow;
+    }
+    box-shadow: $shadow;
+}
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+    background-image: -webkit-gradient(linear, left top, right top, from($from), to($to));
+    background-image: -webkit-linear-gradient(left, $from, $to);
+    background-image: -moz-linear-gradient(left, $from, $to);
+    background-image: -o-linear-gradient(left, $from, $to);
+    background-image: linear-gradient(to right, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing:    $type;
+    -ms-box-sizing:     $type;
+    box-sizing:         $type;
+}
+
+/*********************
+Opacities & transparencies
+*********************/
+@mixin opacity ( $value: 0.5 ) {
+    opacity: $value;
+    filter: alpha(opacity= $value * 100 );
+    -moz-opacity: $value;
+    -khtml-opacity: $value;
+    zoom: 1;
+}
+
+/*********************
+Universal RGBA Background
+*********************/
+@mixin rgba-background($color, $opacity) {
+    position: relative;
+    background: $color;
+    background: rgba($color, $opacity);
+    @include PIE;
+}
+/*********************
+Universal RGBA Color
+*********************/
+@mixin rgba-color($color, $opacity) {
+    position: relative;
+    color: $color;
+    color: rgba($color, $opacity);
+}
+
+/*********************
+Transparent Background
+*********************/
+@mixin transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    @extend .transparent-background;
+    background-color: $rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}
+
+// Loop through opacities from 90 to 10 on an alpha scale
+@mixin transparent-shades($name, $color) {
+    @each $alpha in 90, 80, 70, 60, 50, 40, 30, 20, 10 {
+        .#{$name}-#{$alpha} {
+            @include transparent($color, $alpha / 100);
+        }
+    }
+}
+
+/*********************
+Rotate
+*********************/
+@mixin rotate($degrees) {
+    -moz-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    -webkit-transform: rotate($degrees);
+    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+    zoom: 1;
+}
+
+/*********************
+Text Shadow
+*********************/
+@mixin text-shadow($x, $y, $blur, $color) {
+    text-shadow: $x $y $blur $color;
+    filter: dropshadow(color=#{$color}, offx=#{$x}, offy=#{$y});
+}
+
+/*********************
+ARROWs Mixin
+*********************/
+/*   $direction: top, left, right, bottom, top-left, top-right, bottom-left, bottom-right    -    $color: hex, rgb or rbga   -    $size: px or em
+
+EXAMPLES:
+	&:before {@include arrow(right, #000, 12px); }
+	&:after {@include arrow(right, #000, 9px); }
+    .element { @include arrow(top, #000, 50px); }     */
+
+@mixin arrow($direction, $color, $size){
+    display: block;
+    height: 0;
+    width: 0;
+
+    @if $direction == 'top' {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+    } @else if $direction == 'right' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    } @else if $direction == 'bottom' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+    } @else if $direction == 'left' {
+        border-top: $size solid transparent;
+        border-right: $size solid $color;
+        border-bottom: $size solid transparent;
+    } @else if $direction == 'top-left' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+    } @else if $direction == 'top-right' {
+        border-top: $size solid $color;
+        border-left: $size solid transparent;
+    } @else if $direction == 'bottom-left' {
+        border-bottom: $size solid $color;
+        border-right: $size solid transparent;
+    } @else if $direction == 'bottom-right' {
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+    }
+}
+
+/*********************
+Sticky Footer Mixin
+*********************/
+/* Example @include sticky-footer(40px) */
+@mixin sticky-footer($footer-height, $root-selector: unquote("#master, .sticky"), $root-footer-selector: unquote(".sf-push"), $footer-selector: unquote(".footer")) {
+    html, body {
+        height: 100%; }
+    #{$root-selector} {
+        clear: both;
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin-bottom: -$footer-height;
+        #{$root-footer-selector} {
+            height: $footer-height; } }
+    #{$footer-selector} {
+        clear: both;
+        position: relative;
+        height: $footer-height; }
+}
+
+
+/*********************
+Ellipsis
+*********************/
+
+/* Single-line */
+/* USAGE : ( ) */
+@mixin ellipsis(){
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Multi-line */
+/* USAGE : ( @include multiline-ellipsis(6rem, 1.2rem, 3em); ) */
+@mixin multiline-ellipsis($height, $line-height, $ellipsis-width){
+
+    $ellipsis-width: 3em !default;
+    max-height: $height;
+    line-height: $line-height;
+    overflow: hidden;
+    position: relative;
+
+    &:after{
+        @include css-gradient(rgba(255,255,255,0.0),rgba(255,255,255,1.0));
+        content: "\02026";
+        float: right;
+        right: 0;
+        padding-left: ($ellipsis-width);
+        position: absolute;
+        text-align: right;
+        bottom: 0;
+        width: ($ellipsis-width);
+        z-index: 99;
+        color: $gray-light;
+    }
+
+    .ellipsis > *:first-child{
+        float: right;
+        margin-left: -5px;
+        width: 100%;
+    }
+}
+
+
+
+
+/*********************
+Keyframe Transition
+*********************/
+@mixin keyframe ($animation_name) {
+    @-webkit-keyframes $animation_name {
+        @content;
+    }
+
+    @-moz-keyframes $animation_name {
+        @content;
+    }
+
+    @-o-keyframes $animation_name {
+        @content;
+    }
+
+    @keyframes $animation_name {
+        @content;
+    }
+}
+
+
+/*********************
+CSS3 Animate
+*********************/
+/*
+    Example usage:
+    @include animation(10s, 5s, changecolour)
+ */
+@mixin animation ($delay, $duration, $animation) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    -o-animation-delay: $delay;
+    -o-animation-duration: $duration;
+    -o-animation-name: $animation;
+    -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}

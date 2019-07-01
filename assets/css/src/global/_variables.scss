@@ -1,0 +1,46 @@
+/* ------------------ */
+/* Assets & Variables */
+/* ------------------ */
+
+/* Color Palette */
+$white: #FFFFFF;
+$black: #000000;
+$default_text_color: #444;
+$default_link_color: #00558C;
+$default_hover_color: darken($default_link_color, 7%);
+
+$nav_link_color: #4b4848;
+$nav_hover_color: $default_link_color;
+
+/* Main Citris Colors */
+$citris-main: #004a7c;
+$citris-blue: $citris-main;
+$citris-orange: #f79779;
+
+/* Initiatives */
+$health: #1a74ab;
+$energy: #309f59;
+$democracy: #844280;
+$infrastructure: #e44a4d;
+$foundry: #ed6d36;
+
+/* Misc Global Variables */
+$transition-fast: ease-in-out .1s all;
+$transition-slow: ease-in-out .22s all;
+
+/* Fonts */
+$default_font_stack: 'proxima-nova-light', 'proxima-nova-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$proxima-nova-light: 'proxima-nova-light', 'proxima-nova-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$proxima-nova-regular: 'proxima-nova-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* Media Query Break Points */
+$bp-smallest:       320px;
+$bp-small:          480px;
+$bp-media-small:    620px;
+$bp-medium:         768px;
+$bp-medium-large:   860px;
+$bp-large:          1024px;
+$bp-largest:        1200px;
+
+$bp-ipad-portrait:  $bp-medium;
+$bp-ipad-landscape: $bp-large;
