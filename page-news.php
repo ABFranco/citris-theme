@@ -84,6 +84,7 @@ get_header(); ?>
     					endif; ?>
 
 					<?php ctrs_paging_nav(); $wp_query = $orig_query; wp_reset_postdata(); ?>
+					
 				</main><!-- #main -->
 				<div id="secondary" class="widget-area col-1-4" role="complementary">
 					<?php dynamic_sidebar( 'sidebar-3' ); ?>

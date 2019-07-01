@@ -81,20 +81,20 @@ class CTRS_Groups {
 			array( 'post', 'ctrs-projects', 'ctrs-people', 'tribe_events' ),
 			array(
 				'labels' => array(
-					'name'          => 'Initiatives',
-					'singular_name' => 'Initiative',
-					'search_items'  => 'Search Initiatives',
-					'all_items'     => 'All Initiatives',
-					'edit_item'     => 'Edit Initiative',
-					'update_item'   => 'Update Initiative',
-					'add_new_item'  => 'Add New Initiative',
-					'new_item_name' => 'New Initiative Name',
-					'menu_name'     => 'Initiatives',
+					'name'          => 'Research Thrusts',
+					'singular_name' => 'Research Thrust',
+					'search_items'  => 'Search Research Thrusts',
+					'all_items'     => 'All Research Thrusts',
+					'edit_item'     => 'Edit Research Thrust',
+					'update_item'   => 'Update Research Thrusts',
+					'add_new_item'  => 'Add New Research Thrusts',
+					'new_item_name' => 'New Research Thrust Name',
+					'menu_name'     => 'Research Thrusts',
 				),
 				'hierarchical'      => true,
 				'show_admin_column' => true,
 				'rewrite'           => array(
-					'slug'       => 'initiatives',
+					'slug'       => 'research thrusts',
 					'with_front' => false
 				)
 			)

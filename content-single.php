@@ -32,7 +32,7 @@
 				<span class="phone"><?php echo esc_html( get_post_meta( $post->ID, '_ctrs_phone', true ) ); ?></span>
 				<span class="url"><a href="<?php echo esc_url( get_post_meta( $post->ID, '_ctrs_url', true ) ); ?>">Website</a></span>
 				<span class="email"><a href="mailto:<?php echo esc_attr( get_post_meta( $post->ID, '_ctrs_email', true ) ); ?>"><?php echo esc_html( get_post_meta( $post->ID, '_ctrs_email', true ) ); ?></a></span>
-				<span class="address"><?php echo apply_filters( 'the_content', get_post_meta( $post->ID, '_ctrs_address', true ) ); ?></span>
+				<span class="address"><?php echo esc_html ( get_post_meta( $post->ID, '_ctrs_address', true ) ); ?></span>
             </div><!-- .entry-meta -->
 		<?php
 			} else { ?>

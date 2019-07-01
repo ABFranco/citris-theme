@@ -1,7 +1,7 @@
 <?php
 /**
  * The search template file
- *
+ * Used for /people/
  * @package Citris
  * @since 0.1.0
  */
@@ -37,11 +37,9 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<?php ctrs_paging_nav(); ?>
+					<?php ctrs_paging_nav(); $wp_query = $orig_query; wp_reset_postdata(); ?>
+					
 				</main><!-- #main -->
-				<div id="secondary" class="widget-area col-1-4" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-3' ); ?>
-				</div><!-- #secondary -->
 			</div><!-- .grid -->
 		</div><!-- .col-full -->
 
