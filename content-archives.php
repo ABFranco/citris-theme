@@ -35,33 +35,36 @@
 		} ?>
 		</a>
     </div>
-	<header class="entry-header">
-		<h2 class="entry-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark">
-			<?php if ( is_post_type_archive( 'ctrs-people' ) && get_post_meta( $post->ID, '_ctrs_fname', true ) ) {
-				 echo esc_html( get_post_meta( $post->ID, '_ctrs_honorific', true ) ) . ' ';
-				 echo esc_html( get_post_meta( $post->ID, '_ctrs_fname', true ) ) . ' ';
-				 echo esc_html( get_post_meta( $post->ID, '_ctrs_lname', true ) ) . ' ';
-				 echo esc_html( get_post_meta( $post->ID, '_ctrs_suffix', true ) );
+	<div class="col-2-3">
+		<header class="entry-header">
+			<h2 class="entry-title">
+				<a href="<?php the_permalink(); ?>" rel="bookmark">
+				<?php if ( is_post_type_archive( 'ctrs-people' ) && get_post_meta( $post->ID, '_ctrs_fname', true ) ) {
+					echo esc_html( get_post_meta( $post->ID, '_ctrs_honorific', true ) ) . ' ';
+					echo esc_html( get_post_meta( $post->ID, '_ctrs_fname', true ) ) . ' ';
+					echo esc_html( get_post_meta( $post->ID, '_ctrs_lname', true ) ) . ' ';
+					echo esc_html( get_post_meta( $post->ID, '_ctrs_suffix', true ) );
+				} else {
+					the_title();
+				}
+				?>
+				</a>
+			</h2>
+			<div class="entry-date"><?php the_time('M j, Y'); ?></div>
+			<?php if ( has_tag() ) { ?>
+				<div class="entry-tags"><?php the_tags('tagged in: ', ', '); ?></div>
+			<?php } ?>
+
+		</header><!-- .entry-header -->
+		<div class="entry-summary">
+			<?php
+			if( is_post_type_archive( 'ctrs-people')){
+				the_excerpt();
 			} else {
-				the_title();
+				ctrs_excerpt( 50 );
 			}
 			?>
-			</a>
-		</h2>
-        <div class="entry-date"><?php the_time('M j, Y'); ?></div>
-        <?php if ( has_tag() ) { ?>
-            <div class="entry-tags"><?php the_tags('tagged in: ', ', '); ?></div>
-        <?php } ?>
-
-    </header><!-- .entry-header -->
-	<div class="entry-summary">
-		<?php
-		if( is_post_type_archive( 'ctrs-people')){
-			the_excerpt();
-		} else {
-			ctrs_excerpt( 110 );
-		}
-		?>
-	</div><!-- .entry-summary -->
+		</div><!-- .entry-summary -->
+	</div>
+	
 </article>

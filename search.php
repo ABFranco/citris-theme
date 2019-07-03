@@ -22,7 +22,6 @@ get_header(); ?>
 						<?php if ( 'ctrs-people' === get_post_type() ) : ?>
 							<ul class="person-filter">
 								<li>Filter By:</li>
-								<li><a href="<?php echo esc_url( home_url( '/people/leadership/' ) ); ?>">Leadership</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/people/researcher/' ) ); ?>">Researcher</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/people/staff/' ) ); ?>">Staff</a></li>
 							</ul>

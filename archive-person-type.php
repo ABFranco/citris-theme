@@ -29,7 +29,6 @@ get_header(); ?>
 					<header class="archive-header">
 						<ul class="person-filter">
 							<li>Filter By:</li>
-							<li><a class="button" href="<?php echo esc_url( home_url( '/people/leadership/' ) ); ?>">Leadership</a></li>
 							<li><a class="button" href="<?php echo esc_url( home_url( '/people/researcher/' ) ); ?>">Researcher</a></li>
 							<li><a class="button" href="<?php echo esc_url( home_url( '/people/staff/' ) ); ?>">Staff</a></li>
 						</ul>
