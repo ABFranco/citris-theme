@@ -24,7 +24,7 @@
             if ( has_post_thumbnail() ) {
                 the_post_thumbnail( 'large' );
             } else {
-                echo get_avatar( 0, 120 );
+                echo get_avatar( 0, 140 );
             }
          ?>
 

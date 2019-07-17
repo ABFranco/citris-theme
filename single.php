@@ -17,7 +17,7 @@ get_header(); ?>
 			</div><!-- .entry-breadcrumbs -->
 
 			<div class="grid">
-				<main id="main" class="site-main col-3-4" role="main">
+				<main id="main" class="site-main col-4-4" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -33,10 +33,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 
 				</main><!-- #main -->
-				<div id="secondary" class="widget-area col-1-4" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-3' ); ?>
-				</div><!-- #secondary -->
-			</div><!-- .grid -->
+			</div><!-- .page-post -->
 		</div><!-- .col-full -->
 
 		<?php $recent_query = new WP_Query( array( 'posts_per_page' => 4, 'post_type' => 'post', 'post_status' => 'publish' ) ); ?>

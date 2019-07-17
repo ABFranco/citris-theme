@@ -16,16 +16,9 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div class="col-full">
-			<div class="entry-breadcrumbs">
-				<span xmlns:v="http://rdf.data-vocabulary.org/#">
-					<span typeof="v:Breadcrumb">
-						<span class="breadcrumb_last" property="v:title">Events</span>
-					</span>
-				</span>
-			</div><!-- .entry-breadcrumbs -->
 
 			<div class="grid">
-				<main id="main" class="site-main col-3-4" role="main">
+				<main id="main" class="site-main col-4-4" role="main">
 					<?php tribe_events_before_html(); ?>
 					<?php if ( ! is_single() && ! is_tax( 'tribe_events_cat' ) ) : ?>
 						<?php $featured_args = array(
@@ -54,10 +47,10 @@ get_header(); ?>
 
 					<?php tribe_get_view(); ?>
 					<?php tribe_events_after_html(); ?>
+					<a href="http://events.berkeley.edu/index.php/calendar/sn/citris.html" target="_blank">
+						<h2>View our events on UC Berkeley's Event Calendar.</h2>
+					</a>
 				</main><!-- #main -->
-				<div id="secondary" class="widget-area col-1-4" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-3' ); ?>
-				</div><!-- #secondary -->
 			</div><!-- .grid -->
 		</div><!-- .col-full -->
 

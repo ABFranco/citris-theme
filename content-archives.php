@@ -28,7 +28,7 @@
 			}
 		} else {
 			if ( is_post_type_archive( 'ctrs-people' ) ) {
-				echo get_avatar( 0, 120 );
+				echo get_avatar( 0, 140 );
 			} elseif ( is_post_type_archive( 'ctrs-projects' ) ) {
 				echo '<img src="'. get_template_directory_uri() .'/images/projects.jpg">';
 			}
@@ -61,7 +61,7 @@
 			if( is_post_type_archive( 'ctrs-people')){
 				the_excerpt();
 			} else {
-				ctrs_excerpt( 50 );
+				ctrs_excerpt( 200 );
 			}
 			?>
 		</div><!-- .entry-summary -->
