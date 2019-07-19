@@ -31,9 +31,12 @@ function ctrs_excerpt( $charlength, $text = false ) {
 
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
+ * Notes: this was a newer version of this function that someone else created
+ * However this removes the option to view the page numbers
+ * 
  * @return void
  */
+/*
 function ctrs_paging_nav($query) {
     if(isset($query)) {
         $wp_query = $query;
@@ -74,7 +77,7 @@ function ctrs_paging_nav($query) {
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
-}
+}*/
 
 /**
  * Sort an array by the order field.
@@ -108,7 +111,7 @@ function ctrs_get_post_thumbnail_src() {
 
 /**
  * Fetch and echo sharing links
- *
+ * (deprecated function replaced by Jetpack's social share buttton)
  * @return void
  */
 function ctrs_social_share() {
@@ -131,10 +134,13 @@ function ctrs_social_share() {
 
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
+ * Note: was previously commented out, added back in to allow pages for function calls
+ * that required no arguments
+ * Additionally, this version shows page numbers unlike the other version.
+ * Uncommented out (and edited) to stop certain errors some occurring in the logs.
  * @return void
  */
-/*function ctrs_paging_nav() {
+function ctrs_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -161,7 +167,7 @@ function ctrs_social_share() {
 		'format'    => $format,
 		'total'     => $GLOBALS['wp_query']->max_num_pages,
 		'current'   => $paged,
-		'mid_size'  => 1,
+		'mid_size'  => 5,
 		'add_args'  => array_map( 'urlencode', $query_args ),
 		'prev_text' => '&larr; Previous',
 		'next_text' => 'Next &rarr;',
@@ -177,4 +183,4 @@ function ctrs_social_share() {
 	</nav><!-- .navigation -->
 	<?php
 	endif;
-}*/
+}

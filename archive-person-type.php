@@ -35,6 +35,7 @@ get_header(); ?>
 						<?php get_template_part( 'searchform', 'people' ); ?>
 						<h1 class="archive-title"><?php echo esc_html( ucfirst( $type ) ); ?></h1>
 					</header><!-- .archive-header -->
+					
 
 					<?php
 					global $wp_query;
@@ -112,14 +113,15 @@ get_header(); ?>
 //						$wp_query->posts = $posts_new;
 //					}
 					?>
-
+					<?php ctrs_paging_nav() ?>
 					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
 						<?php get_template_part( 'content', 'archives' ); ?>
 
 					<?php endwhile; ?>
 
-					<?php ctrs_paging_nav($wp_query); $wp_query = $orig_query; wp_reset_postdata(); ?>
+					
+					<?php ctrs_paging_nav() ?>
 				</main><!-- #main -->
 				<div id="secondary" class="widget-area col-1-4" role="complementary">
 					<?php dynamic_sidebar( 'sidebar-3' ); ?>

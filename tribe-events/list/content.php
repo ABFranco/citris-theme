@@ -47,4 +47,7 @@ if ( !defined('ABSPATH') ) { die('-1'); } ?>
 		<?php tribe_get_template_part( 'list/nav', 'footer' ); ?>
 		<?php do_action( 'tribe_events_after_footer_nav' ); ?>
 	</div><!-- #tribe-events-footer -->
+	<a href="http://events.berkeley.edu/index.php/calendar/sn/citris.html" target="_blank">
+		<h2>View our events on UC Berkeley's Event Calendar.</h2>
+	</a>
 </div><!-- #tribe-events-content -->

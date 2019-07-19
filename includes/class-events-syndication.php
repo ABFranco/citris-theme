@@ -156,9 +156,18 @@ class CTRS_Events_Syndication {
 					}
 				}
 
+				// if ( $event_id !== 0 ) {
+				// 	// grab the existing post ID (if it exists).
+				// 	$wp_id = $wpdb->get_var( $sql = "SELECT post_id from {$wpdb->postmeta} WHERE meta_key = '_event_import_id' AND meta_value = " . $event_id );
+				// } else {
+				// 	$wp_id = false;
+				// }
+				// Bugfix: event_id fails to get saved in metadata
+				// uses URL in the metadata instead to check if a repeat occurs
+
 				if ( $event_id !== 0 ) {
-					// grab the existing post ID (if it exists).
-					$wp_id = $wpdb->get_var( $sql = "SELECT post_id from {$wpdb->postmeta} WHERE meta_key = '_event_import_id' AND meta_value = " . $event_id );
+					// grab the existing meta_key _EventURL (if it exists).
+					$wp_id = $wpdb->get_var( $sql = "SELECT post_id from {$wpdb->postmeta} WHERE meta_key = '_EventURL' AND meta_value = " . $url );
 				} else {
 					$wp_id = false;
 				}
@@ -173,8 +182,8 @@ class CTRS_Events_Syndication {
 							$this->add_group( $wp_id, $group );
 							continue;
 						}
-
 						$this->save_event( $title, $url, $content, $start_date, $end_date, $group, $event_id );
+						
 					}
 				}
 
@@ -182,7 +191,6 @@ class CTRS_Events_Syndication {
 		}
 
 	}
-
 	/**
 	 * Save the event post, using information from the RSS feed.
 	 *
@@ -221,6 +229,10 @@ class CTRS_Events_Syndication {
 
 				// Add event ID
 				if ( is_int( $event_id ) && $event_id !== 0 ) {
+					update_post_meta( $post_id, '_event_import_id', $event_id );
+				} else {
+					// bugfix attempt to import this meta_value anyway
+					// since database doesn't show this being added
 					update_post_meta( $post_id, '_event_import_id', $event_id );
 				}
 

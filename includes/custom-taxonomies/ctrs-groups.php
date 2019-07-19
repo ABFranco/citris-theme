@@ -94,7 +94,7 @@ class CTRS_Groups {
 				'hierarchical'      => true,
 				'show_admin_column' => true,
 				'rewrite'           => array(
-					'slug'       => 'research thrusts',
+					'slug'       => 'initiatives',
 					'with_front' => false
 				)
 			)

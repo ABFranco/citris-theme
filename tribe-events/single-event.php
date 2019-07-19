@@ -46,12 +46,24 @@ $event_id = get_the_ID();
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
 				<?php the_content(); ?>
 			</div><!-- .tribe-events-single-event-description -->
+			
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
-
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
-				<?php echo tribe_events_single_event_meta() ?>
+				<?php echo tribe_get_template_part( 'modules/meta' ); ?>
 			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+			<?php
+				if ( function_exists( 'sharing_display' ) ) {
+					sharing_display( '', true );
+				}
+				 
+				if ( class_exists( 'Jetpack_Likes' ) ) {
+					$custom_likes = new Jetpack_Likes;
+					echo $custom_likes->post_likes( '' );
+				}
+			?>
+
+			
 			</div><!-- .hentry .vevent -->
 		<?php if( get_post_type() == TribeEvents::POSTTYPE && tribe_get_option( 'showComments','no' ) == 'yes' ) { comments_template(); } ?>
 	<?php endwhile; ?>

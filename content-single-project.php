@@ -88,10 +88,6 @@
 		</div><!-- .entry-people -->
 
 		<div class="col-2-3">
-			<div class="entry-social">
-				<h2><?php the_title(); ?></h2>
-				<?php ctrs_social_share(); ?>
-			</div><!-- .entry-social -->
 			<div class="entry-content">
 				<?php the_content(); ?>
 				<?php $event_query = new WP_Query( array( 'post_type' => 'tribe_events', 'eventDisplay' => 'upcoming', 'posts_per_page' => 2, 'ctrs-groups' => $group->slug ) );
@@ -120,6 +116,16 @@
 			</div><!-- .entry-content -->
 			<?php endif; wp_reset_postdata(); ?>
 		</div><!-- .entry-summary -->
+		<?php
+				if ( function_exists( 'sharing_display' ) ) {
+					sharing_display( '', true );
+				}
+				 
+				if ( class_exists( 'Jetpack_Likes' ) ) {
+					$custom_likes = new Jetpack_Likes;
+					echo $custom_likes->post_likes( '' );
+				}
+			?>
 	</div><!-- .grid -->
 
 	<div class="clear"></div>

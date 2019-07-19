@@ -21,6 +21,7 @@ get_header(); ?>
 					<header class="archive-header">
 						<h1 class="archive-title">News</h1>
 					</header><!-- .archive-header -->
+					
 
 					<?php
 					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -41,27 +42,31 @@ get_header(); ?>
 								*/
 								get_template_part( 'template-parts/content', get_post_format() );
 							// End the loop.
-						endwhile;
+						endwhile; ?>
 						
-						// Previous/next page navigation.
-						if(function_exists('wp_paginate')):
-							wp_paginate();  
-						else :
-						the_posts_pagination(
-							array(
-								'prev_text'          => __( 'Previous page', 'citris' ),
-								'next_text'          => __( 'Next page', 'citris' ),
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'citris' ) . ' </span>',
-							)
-							) ;
-    					endif; ?>
+						
+						
+						<!-- // Previous/next page navigation. (old version)
+						// if(function_exists('wp_paginate')):
+						// 	wp_paginate();  
+						// else :
+						// the_posts_pagination(
+						// 	array(
+						// 		'prev_text'          => __( 'Previous page', 'citris' ),
+						// 		'next_text'          => __( 'Next page', 'citris' ),
+						// 		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'citris' ) . ' </span>',
+						// 	)
+						// 	) ;
+    					// endif;  -->
+						
+						<?php ctrs_paging_nav();  ?>
+						<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+							<?php get_template_part( 'content', 'archives' ); ?>
 
-						<?php get_template_part( 'content', 'archives' ); ?>
-
-					<?php endwhile; ?>
+						<?php endwhile; ?>
 					</div>
+					
 
 					<?php
 						// Start the loop.
@@ -70,22 +75,22 @@ get_header(); ?>
 							get_template_part( 'template-parts/content', get_post_format() );
 						endwhile;
 
-						// Previous/next page navigation.
-						if(function_exists('wp_paginate')):
-							wp_paginate();  
-						else :
-						the_posts_pagination(
-							array(
-								'prev_text'          => __( 'Previous page', 'citris' ),
-								'next_text'          => __( 'Next page', 'citris' ),
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'citris' ) . ' </span>',
-							)
-							) ;
-    					endif; ?>
-
-					<?php ctrs_paging_nav(); $wp_query = $orig_query; wp_reset_postdata(); ?>
-					
+						// Previous/next page navigation. (old version)
+						// if(function_exists('wp_paginate')):
+						// 	wp_paginate();  
+						// else :
+						// the_posts_pagination(
+						// 	array(
+						// 		'prev_text'          => __( 'Previous page', 'citris' ),
+						// 		'next_text'          => __( 'Next page', 'citris' ),
+						// 		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'citris' ) . ' </span>',
+						// 	)
+						// 	) ;
+						// endif; 
+						?>
+					<?php ctrs_paging_nav(); ?>
 				</main><!-- #main -->
+				
 				<div id="secondary" class="widget-area col-1-4" role="complementary">
 					<?php dynamic_sidebar( 'sidebar-3' ); ?>
 				</div><!-- #secondary -->

@@ -12,6 +12,7 @@
  *
  */
 // http://citris.dev/events/category/research-exchange-events/past/?action=tribe_list&tribe_paged=1
+// include 'class-events-syndication.php';
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -44,12 +45,9 @@ get_header(); ?>
 						</div><!-- .featured-events -->
 						<?php endif; wp_reset_postdata(); ?>
 					<?php endif; ?>
-
-					<?php tribe_get_view(); ?>
+					<?php tribe_get_view(); ?>					
 					<?php tribe_events_after_html(); ?>
-					<a href="http://events.berkeley.edu/index.php/calendar/sn/citris.html" target="_blank">
-						<h2>View our events on UC Berkeley's Event Calendar.</h2>
-					</a>
+					
 				</main><!-- #main -->
 			</div><!-- .grid -->
 		</div><!-- .col-full -->
