@@ -102,7 +102,6 @@ var Citris = ( function ( jQuery, window, undefined ) {
 			month = 0;
 			year = 0;
 		}
-console.log(year);
 		// set up our data we will pass to our script
 		data = {
 			action: 'ctrs_filter_event',

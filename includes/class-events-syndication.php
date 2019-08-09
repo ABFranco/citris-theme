@@ -167,7 +167,7 @@ class CTRS_Events_Syndication {
 
 				if ( $event_id !== 0 ) {
 					// grab the existing meta_key _EventURL (if it exists).
-					$wp_id = $wpdb->get_var( $sql = "SELECT post_id from {$wpdb->postmeta} WHERE meta_key = '_EventURL' AND meta_value = " . $url );
+					$wp_id = $wpdb->get_var( $sql = "SELECT post_id from {$wpdb->postmeta} WHERE meta_key = '_EventURL' AND meta_value = " . "'" . $url . "'" );
 				} else {
 					$wp_id = false;
 				}

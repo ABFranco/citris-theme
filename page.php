@@ -10,12 +10,6 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div class="col-full page-default">
-			<div class="entry-breadcrumbs">
-				<?php if ( function_exists('yoast_breadcrumb') ) {
-					yoast_breadcrumb();
-				} ?>
-			</div><!-- .entry-breadcrumbs -->
-
 			<div class="grid">
 				<main id="main" class="site-main" role="main">
 
